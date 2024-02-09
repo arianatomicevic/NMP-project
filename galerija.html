@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Galerija</title>
+	<link rel="stylesheet"  href="galerija.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+</head>
+<body>
+
+	<nav>
+		<div class="logo">
+			GOMEZ
+		</div>
+		<div class="menu">
+			<a href="#"> O NAMA</a>
+			<a href="#">BLOG</a>
+			<a href="#">BRENDOVI</a>
+			<span id="date"></span>
+		</nav>
+		</div>
+	</nav>
+
+
+<section class="filter-gallery">
+	<div class="portfolio-menu">
+			<ul>
+				<li class="active"  onclick="filterSlika(4, uredjenje)"> Sve</li>
+				<li data-filter=".dnevni" onclick="filterSlika(1, uredjenje)"> Dnevni boravak</li>
+				<li data-filter=".kuhinje" onclick="filterSlika(2, uredjenje)">Kuhinje</li>
+				<li data-filter=".kupatila" onclick="filterSlika(3, uredjenje)">Kupatila</li>
+			</ul>
+		</div>
+
+		
+
+		<div class="row">
+		<div class="portfolio-item">
+			<div class="item dnevni" >
+				<img src="./images/dnevni1.jpg" width="100" height="100">
+			</div>
+
+			<div class="item dnevni"  >
+				<img src="./images/dnevni2.jpg" width="100" height="100">
+			</div>
+			<div class="item dnevni" >
+				<img src="./images/dnevni3.jpg" width="100" height="100">
+			</div>
+			<div class="item kuhinje" >
+				<img src="./images/kuhinja1.jpg" width="100" height="100">
+			</div>
+
+			<div class="item kuhinje">
+				<img src="./images/kuhinja2.jpg" width="100" height="100">
+			</div>
+			<div class="item kuhinje" >
+				<img src="./images/kuhinja3.jpg" width="100" height="100">
+			</div>
+			<div class="item kupatila" >
+				<img src="./images/kupatilo1.jpg" width="100" height="100">
+			</div>
+			<div class="item kupatila">
+				<img src="./images/kupatilo2.jpg" width="100" height="100">
+			</div>
+			<div class="item kupatila">
+				<img src="./images/kupatilo3.jpg" width="100" height="100">
+			</div>
+		</div>
+	
+</section>
+
+
+<script>
+	const uredjenje=[
+		{
+			tip: 1,
+			src: "./images/dnevni1.jpg",
+		},
+		{
+			tip: 1,
+			src: "./images/dnevni2.jpg",
+		},
+		{
+			tip: 1,
+			src: "./images/dnevni3.jpg",
+		},
+		{
+			tip: 2,
+			src: "./images/kuhinja1.jpg",
+		},
+		{
+			tip: 2,
+			src: "./images/kuhinja2.jpg",
+		},
+		{
+			tip: 2,
+			src: "./images/kuhinja3.jpg",
+		},
+		{
+			tip: 3,
+			src: "./images/kupatilo1.jpg",
+		},
+		{
+			tip: 3,
+			src: "./images/kupatilo2.jpg",
+		},
+		{
+			tip: 3,
+			src: "./images/kupatilo3.jpg",
+		},
+	]
+	const mjenjanjeSlika = document.querySelector('.portfolio-item');
+	let rezultat = [];
+	const filterSlika = (i, niz) => {
+		if(i === 1) {
+		rezultat = niz.filter(el =>
+		el.tip === 1);
+	}
+		else if(i === 2) {
+		rezultat = niz.filter(el =>
+		el.tip === 2);
+		}
+		else if(i === 3) {
+		rezultat = niz.filter(el =>
+		el.tip === 3);
+		}
+		else if(i === 4) {
+		rezultat = uredjenje;
+		}
+		mjenjanjeSlika.innerHTML = rezultat.map(el => {
+			return(`<div class="item dnevni" >
+				<img src=${el.src} width="100" height="100">
+			</div>`)
+		})
+	 	}
+
+(function samopozivajuca() {
+	alert("Hello")
+})();
+
+
+</script>
+
+<center>
+
+<script>
+
+function randomUntilFive(result = 0, count = 0){
+    if(result === 5){
+        console.log(`Random rezultat: ${result}`);
+        console.log(`Koliko puta je izvrsena: ${count}`);
+        return;
+    }
+    result = Math.floor(Math.random() * (10 - 1 + 1) + 1);
+    count++;
+    randomUntilFive(result, count);
+}
+
+randomUntilFive();
+
+</script>
+
+
+
+
+
+    </script>
+
+
+<script>
+	const obj = {
+  Authors: [
+    {
+      id: 1,
+      firstName: "Ariana",
+      lastName: "Tomiceivc",
+      age: 23,
+      indNum: "MIT27/21",
+    },
+    {
+      id: 2,
+      firstName: "Aleksa",
+      lastName: "Aleksic",
+      age: 22,
+      indNum: "MIT20/21",
+    },
+    {
+      id: 3,
+      firstName: "Marko",
+      lastName: "Markovic",
+      age: 24,
+      indNum: "MIT15/21",
+    },
+  ],
+};
+
+const listAuthors = obj.Authors.forEach((element) =>
+  console.log(
+    `First Name: ${element.firstName}\nLast Name: ${element.lastName}\nIndex Number: ${element.indNum}\nAge: ${element.age}`
+  )
+);
+
+const showRealAuthor = obj.Authors.filter(function (real) {
+  if (real.firstName == "Marko") {
+    console.log(
+      `Real Author is ${real.firstName} ${real.lastName}, ages: ${real.age}, Index Number: ${real.indNum}`
+    );
+  }
+});
+
+const mapAuthors = obj.Authors.map(({ id, indNum }) => {
+  return { [id]: indNum };
+});
+console.log(mapAuthors);
+
+const sortAuthors = obj.Authors.sort(function (a, b) {
+  const nameA = a.firstName.toUpperCase();
+  const nameB = b.firstName.toUpperCase();
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+  return 0;
+});
+console.log(sortAuthors);
+
+const fullAges = obj.Authors.reduce((sum, author) => {
+  return sum + author.age;
+}, 0);
+console.log("Sum is: " + fullAges);
+
+
+</script>
+</center>
+
+   
+
+
+<footer id="footer" class="footer container">
+    <div class="footer-contact">
+      <h1 class="footer-contact-heading">Kontaktirajte nas</h1><span id="date"></span>
+      <p class="footer-contact-info">Email: gomez@gmail.com</p>
+      <p class="footer-contact-info">Mobile: +381 64 552 44 55</p>
+    </div>
+    <div class="footer-social-follow">
+      <h1 class="footer-social-follow-heading">Zapratite nas</h1>
+      <div class="footer-social-icon">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram-square"></i></a>
+      </div>
+    </div>
+  </footer>
+  
+
+
+
+  <script src="./app.js"></script>
+  <script src="brends.js"></script>
+
+</body>
+</html>
